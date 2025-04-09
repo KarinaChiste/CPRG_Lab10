@@ -7,13 +7,16 @@ namespace Lab10
         static void Main(string[] args)
         {
             Console.WriteLine("Addition");
-            Console.WriteLine("Enter number n: ");
-            string a = Console.ReadLine();
-            int number1 = Convert.ToInt32(a);
-            Console.WriteLine("Enter number m: ");
-            string b = Console.ReadLine();
-            int number2 = Convert.ToInt32(b);
-            Console.WriteLine(Addition(number1,number2));
+            Console.WriteLine("Enter number n: ");            
+            int number1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter number m: ");           
+            int number2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(Addition(number1, number2));
+            Console.WriteLine("Division");
+            Console.WriteLine("Enter your number:");
+            int divide = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Total number of divisions:{Divisions(divide)}");
+           
         }
         
 
@@ -29,10 +32,18 @@ namespace Lab10
             }
                 
         }
-
-        public static int Divisions(int a)
+        
+        public static int Divisions(int a, int count = 0)
         {
-            return 0;
+            if (a%2 != 0)
+            {
+                return count;
+            }
+            else
+            {
+                count++;
+                return Divisions(a/2, count);
+            }
         }
     } 
 }
